@@ -29,11 +29,11 @@ pub enum Suit {
 
 // Tiles list
 // Pin
-pub const iipin: SuitTile = SuitTile {
+pub const IIPIN: SuitTile = SuitTile {
     suit: Suit::Pin,
     number: 1,
 };
-pub const ryanpin: SuitTile = SuitTile {
+pub const RYANPIN: SuitTile = SuitTile {
     suit: Suit::Pin,
     number: 2,
 };
