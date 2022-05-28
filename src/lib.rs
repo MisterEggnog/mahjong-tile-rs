@@ -3,7 +3,8 @@
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Tile {
-	Suit(Suit),
+    Suit(Suit),
+    Honor(Honor),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -14,6 +15,12 @@ pub enum Suit {
     So(i32),
     /// Characters
     Man(i32),
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Honor {
+    Winds(&'static str),
+    Dragons(&'static str),
 }
 
 // Tiles list
