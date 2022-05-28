@@ -19,6 +19,7 @@ pub enum Tile {
     Suit(Suit),
     Honor(Honor),
     Bonus(Bonus),
+    Special(Special),
 }
 
 /// General set of Mahjong tiles
@@ -56,6 +57,14 @@ fn standard_set_amount() {
 }
 
 use bounded_integer::BoundedU8;
+
+/// These tiles are defined in the Unicode codespace.
+/// Therefore I'm including them.
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Special {
+    Joker,
+    Black, // I don't know what this tile is.
+}
 
 // Tiles list
 // Pin
