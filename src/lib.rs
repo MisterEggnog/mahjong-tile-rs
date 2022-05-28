@@ -42,7 +42,7 @@ pub enum Dragons {
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Bonus {
     Seasons(Seasons),
-    Flowers(&'static str),
+    Flowers(Flowers),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -51,6 +51,14 @@ pub enum Seasons {
     Summer,
     Autumn,
     Winter,
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Flowers {
+    Plum,
+    Orchid,
+    Chrysanthemum,
+    Bamboo,
 }
 
 // Tiles list
