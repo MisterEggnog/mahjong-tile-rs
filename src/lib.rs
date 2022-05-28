@@ -65,7 +65,11 @@ pub enum Flowers {
 
 fn make_suits() -> Vec<Tile> {
     let suit_types = [Suit::Circles, Suit::Bamboo, Suit::Characters];
-    todo!()
+    let data: Vec<Tile> = suit_types
+        .iter()
+        .flat_map(|p| (1..=9).map(|i| Tile::Suit(p(i))))
+        .collect();
+    data
 }
 
 // Tiles list
