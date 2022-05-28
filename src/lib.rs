@@ -63,6 +63,11 @@ pub enum Flowers {
     Bamboo,
 }
 
+fn make_suits() -> Vec<Tile> {
+    let suit_types = [Suit::Circles, Suit::Bamboo, Suit::Characters];
+    todo!()
+}
+
 // Tiles list
 // Pin
 pub const IIPIN: Suit = Suit::Circles(1);
