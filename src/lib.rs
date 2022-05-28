@@ -1,10 +1,10 @@
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub struct MahjongTile {
+pub struct SuitTile {
     suit: Suit,
     number: i32,
 }
 
-impl MahjongTile {
+impl SuitTile {
     pub fn get_suit(&self) -> Suit {
         self.suit
     }
@@ -22,19 +22,15 @@ pub enum Suit {
     So,
     /// Characters
     Man,
-    /// Not a true suit, only 4 tiles
-    Wind,
-    /// Not a true suit, on 3 tiles
-    Dragon,
 }
 
 // Tiles list
 // Pin
-pub const iipin: MahjongTile = MahjongTile {
+pub const iipin: SuitTile = SuitTile {
     suit: Suit::Pin,
     number: 1,
 };
-pub const ryanpin: MahjongTile = MahjongTile {
+pub const ryanpin: SuitTile = SuitTile {
     suit: Suit::Pin,
     number: 2,
 };
