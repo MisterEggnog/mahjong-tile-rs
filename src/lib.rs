@@ -19,8 +19,16 @@ pub enum Suit {
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Honor {
-    Winds(&'static str),
+    Winds(Winds),
     Dragons(&'static str),
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Winds {
+    East,
+    South,
+    West,
+    North,
 }
 
 // Tiles list
