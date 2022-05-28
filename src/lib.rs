@@ -23,46 +23,49 @@ pub mod category {
 
     #[derive(Clone, Copy, PartialEq, Eq, Debug)]
     pub enum Bonus {
-        Seasons(Seasons),
-        Flowers(Flowers),
+        Seasons(ranks::Seasons),
+        Flowers(ranks::Flowers),
     }
 
     #[derive(Clone, Copy, PartialEq, Eq, Debug)]
     pub enum Honor {
-        Winds(Winds),
-        Dragons(Dragons),
+        Winds(ranks::Winds),
+        Dragons(ranks::Dragons),
     }
 }
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Winds {
-    East,
-    South,
-    West,
-    North,
-}
+mod ranks {
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Dragons {
-    Red,
-    Green,
-    White,
-}
+    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+    pub enum Winds {
+        East,
+        South,
+        West,
+        North,
+    }
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Seasons {
-    Spring,
-    Summer,
-    Autumn,
-    Winter,
-}
+    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+    pub enum Dragons {
+        Red,
+        Green,
+        White,
+    }
 
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Flowers {
-    Plum,
-    Orchid,
-    Chrysanthemum,
-    Bamboo,
+    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+    pub enum Seasons {
+        Spring,
+        Summer,
+        Autumn,
+        Winter,
+    }
+
+    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+    pub enum Flowers {
+        Plum,
+        Orchid,
+        Chrysanthemum,
+        Bamboo,
+    }
 }
 
 // Tiles list
