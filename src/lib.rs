@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct SuitTile {
     suit: Suit,
