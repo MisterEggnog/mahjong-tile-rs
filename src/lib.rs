@@ -2,6 +2,11 @@
 #![allow(unused_imports)]
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Tile {
+	Suit(Suit),
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
     /// Circles
     Pin(i32),
