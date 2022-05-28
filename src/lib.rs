@@ -22,15 +22,15 @@ pub mod category {
     }
 
     #[derive(Clone, Copy, PartialEq, Eq, Debug)]
-    pub enum Bonus {
-        Seasons(ranks::Seasons),
-        Flowers(ranks::Flowers),
-    }
-
-    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
     pub enum Honor {
         Winds(ranks::Winds),
         Dragons(ranks::Dragons),
+    }
+
+    #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+    pub enum Bonus {
+        Seasons(ranks::Seasons),
+        Flowers(ranks::Flowers),
     }
 }
 
