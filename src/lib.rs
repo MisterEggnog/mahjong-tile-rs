@@ -11,11 +11,11 @@ pub enum Tile {
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
     /// Circles
-    Pin(i32),
+    Circles(i32),
     /// Bamboo
-    So(i32),
+    Bamboo(i32),
     /// Characters
-    Man(i32),
+    Characters(i32),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -63,5 +63,5 @@ pub enum Flowers {
 
 // Tiles list
 // Pin
-pub const IIPIN: Suit = Suit::Pin(1);
-pub const RYANPIN: Suit = Suit::Pin(2);
+pub const IIPIN: Suit = Suit::Circles(1);
+pub const RYANPIN: Suit = Suit::Circles(2);
