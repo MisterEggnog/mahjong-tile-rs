@@ -1,6 +1,4 @@
 
-use count_macro::count;
-
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub struct MahjongTile {
 	suit: Suit,
@@ -32,8 +30,6 @@ pub enum Suit {
 }
 
 // Tiles list
-count! {
 // Pin
-pub const iipin: MahjongTile = MahjongTile { suit: Suit::Pin, number: _int_pin_ };
-pub const ryanpin: MahjongTile = MahjongTile { suit: Suit::Pin, number: _int_pin_ };
-}
+pub const iipin: MahjongTile = MahjongTile { suit: Suit::Pin, number: 1 };
+pub const ryanpin: MahjongTile = MahjongTile { suit: Suit::Pin, number: 2 };
