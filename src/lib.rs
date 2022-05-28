@@ -72,6 +72,17 @@ fn make_suits() -> Vec<Tile> {
     data
 }
 
+#[test]
+fn verify_suit_amount() {
+    let suits = make_suits();
+    assert_eq!(
+        3 * 9,
+        suits.len(),
+        "3 Suits & 9 each should result in {} unique tiles",
+        3 * 9
+    );
+}
+
 // Tiles list
 // Pin
 pub const IIPIN: Suit = Suit::Circles(1);
