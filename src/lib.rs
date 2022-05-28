@@ -5,6 +5,7 @@
 pub enum Tile {
     Suit(Suit),
     Honor(Honor),
+    Bonus(Bonus),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -36,6 +37,12 @@ pub enum Dragons {
     Red,
     Green,
     White,
+}
+
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Bonus {
+    Seasons(&'static str),
+    Flowers(&'static str),
 }
 
 // Tiles list
