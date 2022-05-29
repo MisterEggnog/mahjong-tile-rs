@@ -2,6 +2,7 @@
 //! [https://en.wikipedia.org/wiki/Mahjong_tiles](Wikipedia).
 #![allow(dead_code)]
 #![allow(unused_imports)]
+use bounded_integer::bounded_integer;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Tile {
@@ -10,14 +11,18 @@ pub enum Tile {
     Bonus(Bonus),
 }
 
+bounded_integer! {
+	pub struct SuitNum { 1..=9 }
+}
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
     /// Circles
-    Circles(i32),
+    Circles(SuitNum),
     /// Bamboo
-    Bamboo(i32),
+    Bamboo(SuitNum),
     /// Characters
-    Characters(i32),
+    Characters(SuitNum),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -65,5 +70,6 @@ pub enum Flowers {
 
 // Tiles list
 // Pin
-pub const IIPIN: Suit = Suit::Circles(1);
-pub const RYANPIN: Suit = Suit::Circles(2);
+//pub const IIPIN: Suit = Suit::Circles(SuitNum::new(1).unwrap());
+//pub const RYANPIN: Suit = Suit::Circles(SuitNum::new(2).unwrap());
+// unwrap is not stable for const fn
