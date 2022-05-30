@@ -76,7 +76,7 @@ impl Suit {
 }
 
 impl Dragons {
-    pub fn make_dragons() -> impl Iterator<Item = Tile> {
+    pub fn members() -> impl Iterator<Item = Tile> {
         [Dragons::Red, Dragons::Green, Dragons::White]
             .into_iter()
             .map(|d| Tile::Honor(Honor::Dragons(d)))
@@ -96,7 +96,7 @@ fn verify_suit_amount() {
 
 #[test]
 fn verify_dragon_amount() {
-    let dragons = Dragons::make_dragons();
+    let dragons = Dragons::members();
     assert_eq!(3, dragons.count());
 }
 
