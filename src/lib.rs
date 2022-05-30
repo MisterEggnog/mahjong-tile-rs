@@ -63,13 +63,13 @@ pub enum Flowers {
     Bamboo,
 }
 
-fn make_suits() -> Vec<Tile> {
+fn make_suits() -> impl Iterator<Item = Tile> {
     let suit_types = [Suit::Circles, Suit::Bamboo, Suit::Characters];
     let data: Vec<Tile> = suit_types
         .iter()
         .flat_map(|p| (1..=9).map(|i| Tile::Suit(p(i))))
         .collect();
-    data
+    data.into_iter()
 }
 
 #[test]
@@ -77,7 +77,7 @@ fn verify_suit_amount() {
     let suits = make_suits();
     assert_eq!(
         3 * 9,
-        suits.len(),
+        suits.count(),
         "3 Suits & 9 each should result in {} unique tiles",
         3 * 9
     );
