@@ -73,6 +73,12 @@ fn make_suits() -> impl Iterator<Item = Tile> {
         .flat_map(|p| (1..=9).map(|i| Tile::Suit(p(i))))
 }
 
+fn make_dragons() -> impl Iterator<Item = Tile> {
+    [Dragons::Red, Dragons::Green, Dragons::White]
+        .into_iter()
+        .map(|d| Tile::Honor(Honor::Dragons(d)))
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = make_suits();
@@ -82,6 +88,12 @@ fn verify_suit_amount() {
         "3 Suits & 9 each should result in {} unique tiles",
         3 * 9
     );
+}
+
+#[test]
+fn verify_dragon_amount() {
+    let dragons = make_dragons();
+    assert_eq!(3, dragons.count());
 }
 
 // Tiles list
