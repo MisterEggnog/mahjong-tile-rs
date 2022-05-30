@@ -67,6 +67,12 @@ pub enum Flowers {
 
 // Tiles list
 // Pin
-//pub const IIPIN: Suit = Suit::Circles(SuitNum::new(1).unwrap());
-//pub const RYANPIN: Suit = Suit::Circles(SuitNum::new(2).unwrap());
+pub const IIPIN: Suit = Suit::Circles(match SuitNum::new(1) {
+    Some(a) => a,
+    None => panic!("{}", "This should not fail"),
+});
+pub const RYANPIN: Suit = Suit::Circles(match SuitNum::new(2) {
+    Some(a) => a,
+    None => panic!("{}", "This should not fail"),
+});
 // unwrap is not stable for const fn
