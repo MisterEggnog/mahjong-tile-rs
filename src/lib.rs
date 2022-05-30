@@ -75,10 +75,12 @@ impl Suit {
     }
 }
 
-fn make_dragons() -> impl Iterator<Item = Tile> {
-    [Dragons::Red, Dragons::Green, Dragons::White]
-        .into_iter()
-        .map(|d| Tile::Honor(Honor::Dragons(d)))
+impl Dragons {
+    pub fn make_dragons() -> impl Iterator<Item = Tile> {
+        [Dragons::Red, Dragons::Green, Dragons::White]
+            .into_iter()
+            .map(|d| Tile::Honor(Honor::Dragons(d)))
+    }
 }
 
 #[test]
@@ -94,7 +96,7 @@ fn verify_suit_amount() {
 
 #[test]
 fn verify_dragon_amount() {
-    let dragons = make_dragons();
+    let dragons = Dragons::make_dragons();
     assert_eq!(3, dragons.count());
 }
 
