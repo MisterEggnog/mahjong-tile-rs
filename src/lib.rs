@@ -64,7 +64,7 @@ pub enum Flowers {
 }
 
 impl Suit {
-    pub fn make_suits() -> impl Iterator<Item = Tile> {
+    pub fn members() -> impl Iterator<Item = Tile> {
         // Come on Rust, is an array of function pointers of the SAME TYPE that
         // hard for you?
         let suit_types: [&'static dyn Fn(i32) -> Suit; 3] =
@@ -83,7 +83,7 @@ fn make_dragons() -> impl Iterator<Item = Tile> {
 
 #[test]
 fn verify_suit_amount() {
-    let suits = Suit::make_suits();
+    let suits = Suit::members();
     assert_eq!(
         3 * 9,
         suits.count(),
