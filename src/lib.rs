@@ -64,9 +64,12 @@ pub enum Flowers {
 }
 
 fn make_suits() -> impl Iterator<Item = Tile> {
-    let suit_types = [Suit::Circles, Suit::Bamboo, Suit::Characters];
+    // Come on Rust, is an array of function pointers of the SAME TYPE that
+    // hard for you?
+    let suit_types: [&'static dyn Fn(i32) -> Suit; 3] =
+        [&Suit::Circles, &Suit::Bamboo, &Suit::Characters];
     let data: Vec<Tile> = suit_types
-        .iter()
+        .into_iter()
         .flat_map(|p| (1..=9).map(|i| Tile::Suit(p(i))))
         .collect();
     data.into_iter()
