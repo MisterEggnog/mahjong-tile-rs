@@ -69,11 +69,13 @@ impl Suit {
     pub fn members() -> impl Iterator<Item = Tile> {
         // Come on Rust, is an array of function pointers of the SAME TYPE that
         // hard for you?
-        let suit_types: [&'static dyn Fn(i32) -> Suit; 3] =
+        let suit_types: [&'static dyn Fn(SuitNum) -> Suit; 3] =
             [&Suit::Circles, &Suit::Bamboo, &Suit::Characters];
-        suit_types
-            .into_iter()
-            .flat_map(|p| (1..=9).map(|i| Tile::Suit(p(i))))
+        suit_types.into_iter().flat_map(|p| {
+            (1..=9)
+                .map(|i| SuitNum::new(i).expect("Input in range 1..=9"))
+                .map(|i| Tile::Suit(p(i)))
+        })
     }
 }
 
