@@ -69,10 +69,10 @@ pub enum Flowers {
 // Pin
 pub const IIPIN: Suit = Suit::Circles(match SuitNum::new(1) {
     Some(a) => a,
-    None => panic!("{}", "This should not fail"),
+    None => unreachable!(),
 });
 pub const RYANPIN: Suit = Suit::Circles(match SuitNum::new(2) {
     Some(a) => a,
-    None => panic!("{}", "This should not fail"),
+    None => unreachable!(),
 });
 // unwrap is not stable for const fn
