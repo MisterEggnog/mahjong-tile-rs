@@ -10,14 +10,16 @@ pub enum Tile {
     Bonus(Bonus),
 }
 
+type SuitNum = bounded_integer::BoundedU8<1, 9>;
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
     /// Circles
-    Circles(i32),
+    Circles(SuitNum),
     /// Bamboo
-    Bamboo(i32),
+    Bamboo(SuitNum),
     /// Characters
-    Characters(i32),
+    Characters(SuitNum),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -65,5 +67,12 @@ pub enum Flowers {
 
 // Tiles list
 // Pin
-pub const IIPIN: Suit = Suit::Circles(1);
-pub const RYANPIN: Suit = Suit::Circles(2);
+pub const IIPIN: Suit = Suit::Circles(match SuitNum::new(1) {
+    Some(a) => a,
+    None => unreachable!(),
+});
+pub const RYANPIN: Suit = Suit::Circles(match SuitNum::new(2) {
+    Some(a) => a,
+    None => unreachable!(),
+});
+// unwrap is not stable for const fn
