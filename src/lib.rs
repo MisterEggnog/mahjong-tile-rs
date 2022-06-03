@@ -1,5 +1,5 @@
-//! All information source from
-//! [https://en.wikipedia.org/wiki/Mahjong_tiles](Wikipedia).
+//! All information from
+//! <https://en.wikipedia.org/wiki/Mahjong_tiles>.
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
