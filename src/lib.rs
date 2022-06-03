@@ -108,6 +108,19 @@ impl Flowers {
     }
 }
 
+impl Seasons {
+    pub fn members() -> impl Iterator<Item = Tile> {
+        [
+            Seasons::Spring,
+            Seasons::Summer,
+            Seasons::Autumn,
+            Seasons::Winter,
+        ]
+        .into_iter()
+        .map(|s| Tile::Bonus(Bonus::Seasons(s)))
+    }
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = Suit::members();
@@ -135,6 +148,12 @@ fn verify_winds_amount() {
 fn verify_flowers_amount() {
     let flowers = Flowers::members();
     assert_eq!(4, flowers.count());
+}
+
+#[test]
+fn verify_season_amount() {
+    let seasons = Seasons::members();
+    assert_eq!(4, seasons.count());
 }
 
 // Tiles list
