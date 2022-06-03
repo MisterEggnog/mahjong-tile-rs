@@ -123,6 +123,16 @@ impl Seasons {
     }
 }
 
+pub fn standard_set() -> impl Iterator<Item = Tile> {
+    let suits = Suit::members();
+    let dragons = Dragons::members();
+    let winds = Winds::members();
+    let flowers = Flowers::members();
+    let seasons = Seasons::members();
+
+    suits
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = Suit::members();
@@ -156,6 +166,12 @@ fn verify_flowers_amount() {
 fn verify_season_amount() {
     let seasons = Seasons::members();
     assert_eq!(4, seasons.count());
+}
+
+#[test]
+fn standard_set_amount() {
+    let set = standard_set();
+    assert_eq!(144, set.count());
 }
 
 // Tiles list
