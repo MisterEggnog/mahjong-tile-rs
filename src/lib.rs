@@ -95,6 +95,19 @@ impl Winds {
     }
 }
 
+impl Flowers {
+    pub fn members() -> impl Iterator<Item = Tile> {
+        [
+            Flowers::Plum,
+            Flowers::Orchid,
+            Flowers::Chrysanthemum,
+            Flowers::Bamboo,
+        ]
+        .into_iter()
+        .map(|f| Tile::Bonus(Bonus::Flowers(f)))
+    }
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = Suit::members();
@@ -116,6 +129,12 @@ fn verify_dragon_amount() {
 fn verify_winds_amount() {
     let winds = Winds::members();
     assert_eq!(4, winds.count());
+}
+
+#[test]
+fn verify_flowers_amount() {
+    let flowers = Flowers::members();
+    assert_eq!(4, flowers.count());
 }
 
 // Tiles list
