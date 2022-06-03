@@ -3,6 +3,8 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 
+mod utility;
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Tile {
     Suit(Suit),
