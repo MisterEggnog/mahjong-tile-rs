@@ -5,6 +5,8 @@
 
 mod utility;
 
+use utility::loop_iterator;
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Tile {
     Suit(Suit),
@@ -130,7 +132,7 @@ pub fn standard_set() -> impl Iterator<Item = Tile> {
     let flowers = Flowers::members();
     let seasons = Seasons::members();
 
-    suits
+    loop_iterator(suits, 4)
 }
 
 #[test]
