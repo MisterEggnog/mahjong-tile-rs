@@ -10,16 +10,16 @@ pub enum Tile {
     Bonus(Bonus),
 }
 
-type BdU8<const A: u8, const B: u8> = bounded_integer::BoundedU8<A, B>;
+type SuitNum = bounded_integer::BoundedU8<1, 9>;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
     /// Circles
-    Circles(BdU8<1, 9>),
+    Circles(SuitNum),
     /// Bamboo
-    Bamboo(BdU8<1, 9>),
+    Bamboo(SuitNum),
     /// Characters
-    Characters(BdU8<1, 9>),
+    Characters(SuitNum),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -67,11 +67,11 @@ pub enum Flowers {
 
 // Tiles list
 // Pin
-pub const IIPIN: Suit = Suit::Circles(match BdU8::new(1) {
+pub const IIPIN: Suit = Suit::Circles(match SuitNum::new(1) {
     Some(a) => a,
     None => unreachable!(),
 });
-pub const RYANPIN: Suit = Suit::Circles(match BdU8::new(2) {
+pub const RYANPIN: Suit = Suit::Circles(match SuitNum::new(2) {
     Some(a) => a,
     None => unreachable!(),
 });
