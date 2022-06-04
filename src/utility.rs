@@ -1,9 +1,8 @@
 use std::iter::Iterator;
 use std::iter::{Flatten, RepeatWith, Take};
 
-pub fn loop_iterator<I: Iterator + Clone>(iter: I, loop_num: usize) -> impl Iterator {
-    std::iter::repeat(iter).take(loop_num).flatten()
-}
+// Loop iterator, removed after commit
+// 4ed170a4068dfce6194f9489be10e153e5326740
 
 pub fn loop_iterator_with<I, F>(iter: F, loop_num: usize) -> Flatten<Take<RepeatWith<F>>>
 where
@@ -15,9 +14,6 @@ where
 
 #[test]
 fn loop_three_times() {
-    let iter = loop_iterator(1..=10, 3);
-    assert_eq!(30, iter.count());
-
     let iter = loop_iterator_with(|| 1..=10, 3);
     assert_eq!(30, iter.count());
 }
