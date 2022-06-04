@@ -4,8 +4,10 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
+mod honor;
 mod utility;
 
+use honor::*;
 use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -22,27 +24,6 @@ pub enum Suit {
     Circles(SuitNum),
     Bamboo(SuitNum),
     Characters(SuitNum),
-}
-
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Honor {
-    Winds(Winds),
-    Dragons(Dragons),
-}
-
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Winds {
-    East,
-    South,
-    West,
-    North,
-}
-
-#[derive(Clone, Copy, PartialEq, Eq, Debug)]
-pub enum Dragons {
-    Red,
-    Green,
-    White,
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
@@ -78,22 +59,6 @@ impl Suit {
                 .map(|i| SuitNum::new(i).expect("Input in range 1..=9"))
                 .map(|i| Tile::Suit(p(i)))
         })
-    }
-}
-
-impl Dragons {
-    pub fn members() -> impl Iterator<Item = Tile> {
-        [Dragons::Red, Dragons::Green, Dragons::White]
-            .into_iter()
-            .map(|d| Tile::Honor(Honor::Dragons(d)))
-    }
-}
-
-impl Winds {
-    pub fn members() -> impl Iterator<Item = Tile> {
-        [Winds::East, Winds::South, Winds::West, Winds::North]
-            .into_iter()
-            .map(|w| Tile::Honor(Honor::Winds(w)))
     }
 }
 
@@ -157,18 +122,6 @@ fn verify_suit_amount() {
         "3 Suits & 9 each should result in {} unique tiles",
         3 * 9
     );
-}
-
-#[test]
-fn verify_dragon_amount() {
-    let dragons = Dragons::members();
-    assert_eq!(3, dragons.count());
-}
-
-#[test]
-fn verify_winds_amount() {
-    let winds = Winds::members();
-    assert_eq!(4, winds.count());
 }
 
 #[test]
