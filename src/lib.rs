@@ -132,7 +132,7 @@ pub fn standard_set() -> impl Iterator<Item = Tile> {
     let flowers = Flowers::members();
     let seasons = Seasons::members();
 
-    loop_iterator(suits, 4)
+    std::iter::repeat_with(Suit::members).take(3).flatten()
 }
 
 #[test]
