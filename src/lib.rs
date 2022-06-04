@@ -19,11 +19,8 @@ type SuitNum = bounded_integer::BoundedU8<1, 9>;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Suit {
-    /// Circles
     Circles(SuitNum),
-    /// Bamboo
     Bamboo(SuitNum),
-    /// Characters
     Characters(SuitNum),
 }
 
