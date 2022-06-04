@@ -136,6 +136,8 @@ pub fn standard_set() -> impl Iterator<Item = Tile> {
     loop_iterator_with(Suit::members, 4)
         .chain(loop_iterator_with(Dragons::members, 4))
         .chain(loop_iterator_with(Winds::members, 4))
+        .chain(Flowers::members())
+        .chain(Seasons::members())
 }
 
 #[test]
