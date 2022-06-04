@@ -1,25 +1,6 @@
 use std::iter::Iterator;
 use std::iter::{Flatten, RepeatWith, Take};
 
-struct LoopWith<F, I>
-where
-    I: Iterator,
-    F: FnMut() -> I,
-{
-    inner: Flatten<Take<RepeatWith<F>>>,
-}
-
-impl<F, I> Iterator for LoopWith<F, I>
-where
-    I: Iterator,
-    F: FnMut() -> I,
-{
-    type Item = I::Item;
-    fn next(&mut self) -> Option<Self::Item> {
-        todo!()
-    }
-}
-
 pub fn loop_iterator<I: Iterator + Clone>(iter: I, loop_num: usize) -> impl Iterator {
     std::iter::repeat(iter).take(loop_num).flatten()
 }
