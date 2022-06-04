@@ -2,6 +2,7 @@
 //! [https://en.wikipedia.org/wiki/Mahjong_tiles](Wikipedia).
 #![allow(dead_code)]
 #![allow(unused_imports)]
+#![allow(unused_variables)]
 
 mod utility;
 
