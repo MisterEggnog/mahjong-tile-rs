@@ -24,7 +24,7 @@ pub fn loop_iterator<I: Iterator + Clone>(iter: I, loop_num: usize) -> impl Iter
     std::iter::repeat(iter).take(loop_num).flatten()
 }
 
-pub fn loop_iterator_with<I, F>(iter: F, loop_num: usize) -> impl Iterator
+pub fn loop_iterator_with<I, F>(iter: F, loop_num: usize) -> Flatten<Take<RepeatWith<F>>>
 where
     I: Iterator,
     F: FnMut() -> I,

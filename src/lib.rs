@@ -6,7 +6,7 @@
 
 mod utility;
 
-use utility::loop_iterator;
+use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Tile {
@@ -133,7 +133,7 @@ pub fn standard_set() -> impl Iterator<Item = Tile> {
     let flowers = Flowers::members();
     let seasons = Seasons::members();
 
-    std::iter::repeat_with(Suit::members).take(3).flatten()
+    loop_iterator_with(Suit::members, 3)
 }
 
 #[test]
