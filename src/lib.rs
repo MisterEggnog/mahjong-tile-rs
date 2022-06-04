@@ -126,6 +126,23 @@ impl Seasons {
     }
 }
 
+/// General set of Mahjong tiles
+///
+/// Get the common mahjong set.
+/// This is 4 of each suit & the honor tiles, plus 1 set of the bonus tiles.
+///
+/// |Group | Num|
+/// |------|--|
+/// |Dots  |36|
+/// |Bamboo|36|
+/// |Characters|36|
+/// |Winds |16|
+/// |Dragons|12|
+/// |Flowers|4|
+/// |Seasons|4|
+/// |Total|144|
+///
+/// [^note]: <https://en.wikipedia.org/wiki/Mahjong#Old_Hong_Kong_Mahjong_rules>
 pub fn standard_set() -> impl Iterator<Item = Tile> {
     loop_iterator_with(Suit::members, 4)
         .chain(loop_iterator_with(Dragons::members, 4))
