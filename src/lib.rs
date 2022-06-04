@@ -133,7 +133,7 @@ pub fn standard_set() -> impl Iterator<Item = Tile> {
     let flowers = Flowers::members();
     let seasons = Seasons::members();
 
-    loop_iterator_with(Suit::members, 3)
+    loop_iterator_with(Suit::members, 4).chain(loop_iterator_with(Dragons::members, 4))
 }
 
 #[test]
