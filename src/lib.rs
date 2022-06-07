@@ -9,9 +9,9 @@ mod honor;
 mod suit;
 mod utility;
 
-use bonus::*;
-use honor::*;
-use suit::*;
+pub use bonus::*;
+pub use honor::*;
+pub use suit::*;
 use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
