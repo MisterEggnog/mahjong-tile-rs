@@ -26,7 +26,7 @@ impl Suit {
 impl From<Suit> for char {
     fn from(tile: Suit) -> Self {
         match tile {
-            Suit::Circles(n) => match n.get() {
+            Suit::Characters(n) => match n.get() {
                 1 => '🀇',
                 2 => '🀈',
                 3 => '🀉',
