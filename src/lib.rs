@@ -58,12 +58,16 @@ fn standard_set_amount() {
 
 use bounded_integer::BoundedU8;
 
+/// Unicode codespace defined tiles
+///
 /// These tiles are defined in the Unicode codespace.
 /// Therefore I'm including them.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Special {
+    /// Probably a bigger deal in American Mahjong.
     Joker,
-    Black, // I don't know what this tile is.
+    /// I don't know what this tile is.
+    Black,
 }
 
 // Tiles list
