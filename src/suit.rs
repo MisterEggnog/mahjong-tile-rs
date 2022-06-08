@@ -26,6 +26,10 @@ impl Suit {
 impl From<Suit> for char {
     fn from(tile: Suit) -> Self {
         match tile {
+            Suit::Bamboo(n) => match n.get() {
+                1 => '🀐',
+                _ => panic!("{:?}", tile),
+            },
             Suit::Circles(n) => match n.get() {
                 1 => '🀙',
                 2 => '🀚',
@@ -50,7 +54,6 @@ impl From<Suit> for char {
                 9 => '🀏',
                 _ => panic!("{:?}", tile),
             },
-            _ => panic!("{:?}", tile),
         }
     }
 }
