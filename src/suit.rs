@@ -28,6 +28,14 @@ impl From<Suit> for char {
         match tile {
             Suit::Circles(n) => match n.get() {
                 1 => '🀙',
+                2 => '🀚',
+                3 => '🀛',
+                4 => '🀜',
+                5 => '🀝',
+                6 => '🀞',
+                7 => '🀟',
+                8 => '🀠',
+                9 => '🀡',
                 _ => panic!("{:?}", tile),
             },
             Suit::Characters(n) => match n.get() {
