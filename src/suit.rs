@@ -36,9 +36,9 @@ impl From<Suit> for char {
                 7 => '🀍',
                 8 => '🀎',
                 9 => '🀏',
-                _ => unreachable!(),
+                _ => panic!("{:?}", tile),
             },
-            _ => unreachable!(),
+            _ => panic!("{:?}", tile),
         }
     }
 }
