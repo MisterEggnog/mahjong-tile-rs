@@ -22,6 +22,14 @@ pub enum Tile {
     Special(Special),
 }
 
+impl TryFrom<Tile> for char {
+    type Error = std::convert::Infallible;
+
+    fn try_from(value: Tile) -> Result<Self, Self::Error> {
+        todo!()
+    }
+}
+
 /// General set of Mahjong tiles
 ///
 /// Get the common mahjong set.
