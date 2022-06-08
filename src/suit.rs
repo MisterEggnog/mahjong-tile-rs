@@ -23,6 +23,12 @@ impl Suit {
     }
 }
 
+impl From<Suit> for char {
+    fn from(tile: Suit) -> Self {
+        todo!()
+    }
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = Suit::members();
@@ -32,4 +38,17 @@ fn verify_suit_amount() {
         "3 Suits & 9 each should result in {} unique tiles",
         3 * 9
     );
+}
+
+#[test]
+fn verify_unique_char_cast() {
+    use std::collections::HashSet;
+    let set: HashSet<char> = Suit::members()
+        .map(|t| match t {
+            Tile::Suit(s) => s,
+            _ => unreachable!(),
+        })
+        .map(|a| a.into())
+        .collect();
+    assert_eq!(set.len(), Suit::members().count());
 }
