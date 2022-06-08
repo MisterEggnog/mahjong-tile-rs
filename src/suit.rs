@@ -25,7 +25,13 @@ impl Suit {
 
 impl From<Suit> for char {
     fn from(tile: Suit) -> Self {
-        todo!()
+        match tile {
+            Suit::Circles(n) => match n.get() {
+                1 => '🀀',
+                _ => unreachable!(),
+            },
+            _ => unreachable!(),
+        }
     }
 }
 
