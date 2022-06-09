@@ -18,7 +18,7 @@ fn numerical_unicode_equality() {
     tiles.sort_unstable_by(|a, b| a.0.cmp(&b.0));
 
     mahjong_chars.zip(tiles).all(|(a, (b, c))| {
-        assert_eq!(a, b);
+        assert_eq!(a, b, "Casting to char for {:?} failed.", c);
         true
     });
 }
