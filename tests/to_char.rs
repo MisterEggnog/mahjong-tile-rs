@@ -17,5 +17,8 @@ fn numerical_unicode_equality() {
         .collect();
     tiles.sort_unstable();
 
-    assert!(mahjong_chars.eq(tiles), "TO DO better error message");
+    mahjong_chars.zip(tiles).all(|(a, b)| {
+        assert_eq!(a, b);
+        true
+    });
 }
