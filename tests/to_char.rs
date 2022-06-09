@@ -12,7 +12,10 @@ fn numerical_unicode_equality() {
         .chain(Flowers::members())
         .chain(once(Tile::Special(Special::Joker)))
         .chain(once(Tile::Special(Special::Black)));
-    let tiles = tiles.map(|c| char::try_from(c).expect("These should not fail"));
+    let mut tiles: Vec<char> = tiles
+        .map(|c| char::try_from(c).expect("These should not fail"))
+        .collect();
+    tiles.sort_unstable();
 
     assert!(mahjong_chars.eq(tiles), "TO DO better error message");
 }
