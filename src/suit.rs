@@ -80,7 +80,7 @@ fn verify_suit_amount() {
 #[test]
 fn verify_unique_char_cast() {
     use std::collections::HashSet;
-    let set: HashSet<char> = Suit::members()
+    let set: HashSet<&'static str> = Suit::members()
         .map(|t| match t {
             Tile::Suit(s) => s,
             _ => unreachable!(),
