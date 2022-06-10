@@ -26,7 +26,10 @@ impl TryFrom<Tile> for &'static str {
     type Error = std::convert::Infallible;
 
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
-        todo!()
+        match value {
+            Tile::Suit(suit) => Ok(suit.into()),
+            _ => todo!(),
+        }
     }
 }
 
