@@ -15,6 +15,7 @@ pub use suit::*;
 use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[non_exhaustive]
 pub enum Tile {
     Suit(Suit),
     Honor(Honor),
