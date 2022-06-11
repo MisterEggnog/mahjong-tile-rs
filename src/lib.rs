@@ -35,6 +35,7 @@ impl TryFrom<Tile> for &'static str {
     }
 }
 
+/// Error returned when casting Tile to str
 #[derive(Debug)]
 pub struct TileCastingError;
 
