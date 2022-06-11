@@ -3,6 +3,8 @@
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
+use std::error::Error;
+use std::fmt;
 
 mod bonus;
 mod honor;
@@ -23,7 +25,7 @@ pub enum Tile {
 }
 
 impl TryFrom<Tile> for &'static str {
-    type Error = std::convert::Infallible;
+    type Error = TileCastingError;
 
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
         match value {
@@ -32,6 +34,17 @@ impl TryFrom<Tile> for &'static str {
         }
     }
 }
+
+#[derive(Debug)]
+pub struct TileCastingError;
+
+impl fmt::Display for TileCastingError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
+        write!(f, "this tile variant is not castable")
+    }
+}
+
+impl std::error::Error for TileCastingError {}
 
 /// General set of Mahjong tiles
 ///
