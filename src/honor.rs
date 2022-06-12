@@ -37,6 +37,17 @@ impl Winds {
     }
 }
 
+impl From<Winds> for &'static str {
+    fn from(tile: Winds) -> Self {
+        match tile {
+            Winds::East => "🀀",
+            Winds::South => "🀁",
+            Winds::West => "🀂",
+            Winds::North => "🀃",
+        }
+    }
+}
+
 #[test]
 fn verify_dragon_amount() {
     let dragons = Dragons::members();
