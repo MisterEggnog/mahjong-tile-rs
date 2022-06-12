@@ -4,19 +4,7 @@ use std::iter::once;
 #[test]
 fn numerical_unicode_equality() {
     let mahjong_chars = (0x1F000..=0x1F02B_u32)
-        .map(|c| {
-            format!(
-                "{}",
-                char::from_u32(c).expect("Supposed to be part of unicode SMP")
-            )
-        })
-        .map(|c| {
-            if c == "🀄" {
-                "🀄︎".to_string()
-            } else {
-                c
-            }
-        });
+        .map(|c| char::from_u32(c).expect("Supposed to be part of unicode SMP"));
     let tiles = Suit::members()
         .chain(Dragons::members())
         .chain(Winds::members())
@@ -24,13 +12,9 @@ fn numerical_unicode_equality() {
         .chain(Flowers::members())
         .chain(once(Tile::Special(Special::Joker)))
         .chain(once(Tile::Special(Special::Black)));
-    let mut tiles: Vec<(&'static str, Tile)> = tiles
-        .map(|c| {
-            (
-                <&'static str>::try_from(c).expect("to str not implemented for this type."),
-                c,
-            )
-        })
+
+    let mut tiles: Vec<(char, Tile)> = tiles
+        .map(|c| (char::try_from(c).expect("These should not fail"), c))
         .collect();
     tiles.sort_unstable_by(|a, b| a.0.cmp(&b.0));
 
