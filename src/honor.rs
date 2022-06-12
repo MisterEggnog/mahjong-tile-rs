@@ -37,13 +37,13 @@ impl Winds {
     }
 }
 
-impl From<Winds> for &'static str {
+impl From<Winds> for char {
     fn from(tile: Winds) -> Self {
         match tile {
-            Winds::East => "🀀",
-            Winds::South => "🀁",
-            Winds::West => "🀂",
-            Winds::North => "🀃",
+            Winds::East => '🀀',
+            Winds::South => '🀁',
+            Winds::West => '🀂',
+            Winds::North => '🀃',
         }
     }
 }
