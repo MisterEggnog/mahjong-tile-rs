@@ -24,7 +24,7 @@ pub enum Tile {
     Special(Special),
 }
 
-impl TryFrom<Tile> for &'static str {
+impl TryFrom<Tile> for char {
     type Error = TileCastingError;
 
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
