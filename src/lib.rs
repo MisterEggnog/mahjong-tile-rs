@@ -30,7 +30,7 @@ impl TryFrom<Tile> for &'static str {
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
         match value {
             Tile::Suit(suit) => Ok(suit.into()),
-            _ => todo!(),
+            _ => Err(TileCastingError),
         }
     }
 }
