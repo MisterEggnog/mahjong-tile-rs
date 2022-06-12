@@ -27,7 +27,7 @@ fn numerical_unicode_equality() {
     let mut tiles: Vec<(&'static str, Tile)> = tiles
         .map(|c| {
             (
-                <&'static str>::try_from(c).expect("These should not fail"),
+                <&'static str>::try_from(c).expect("to str not implemented for this type."),
                 c,
             )
         })
