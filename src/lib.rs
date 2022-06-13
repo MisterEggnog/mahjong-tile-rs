@@ -1,5 +1,9 @@
 //! All information from
 //! <https://en.wikipedia.org/wiki/Mahjong_tiles>.
+//!
+//! For the to_char component, the information is from [Mahjong Unicode Block] page of Wikipedia.
+//!
+//! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
