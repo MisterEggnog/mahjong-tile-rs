@@ -34,6 +34,7 @@ impl TryFrom<Tile> for char {
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
         match value {
             Tile::Suit(suit) => Ok(suit.into()),
+            Tile::Honor(honor) => Ok(honor.into()),
             _ => Err(TileCastingError(value)),
         }
     }
