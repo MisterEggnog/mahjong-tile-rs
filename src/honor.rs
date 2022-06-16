@@ -58,6 +58,12 @@ impl From<Dragons> for char {
     }
 }
 
+impl From<Honor> for char {
+    fn from(tile: Honor) -> Self {
+        todo!()
+    }
+}
+
 #[test]
 fn verify_dragon_amount() {
     let dragons = Dragons::members();
@@ -94,4 +100,21 @@ fn verify_dragons_to_char() {
         .map(From::from)
         .collect::<HashSet<char>>();
     assert_eq!(winds_char_uniq.len(), Dragons::members().count());
+}
+
+#[test]
+fn verify_honors_to_char() {
+    use std::collections::HashSet;
+    let winds_char_uniq = Dragons::members()
+        .chain(Winds::members())
+        .map(|t| match t {
+            Tile::Honor(h) => h,
+            _ => panic!("Impossible value {:?}", t),
+        })
+        .map(From::from)
+        .collect::<HashSet<char>>();
+    assert_eq!(
+        winds_char_uniq.len(),
+        Dragons::members().chain(Winds::members()).count()
+    );
 }
