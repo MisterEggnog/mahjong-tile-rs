@@ -34,18 +34,18 @@ impl TryFrom<Tile> for char {
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
         match value {
             Tile::Suit(suit) => Ok(suit.into()),
-            _ => Err(TileCastingError),
+            _ => Err(TileCastingError(value)),
         }
     }
 }
 
 /// Error returned when casting Tile to str
 #[derive(Debug)]
-pub struct TileCastingError;
+pub struct TileCastingError(Tile);
 
 impl fmt::Display for TileCastingError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
-        write!(f, "this tile variant is not castable")
+        write!(f, "this tile variant ({:?}) is not castable", self.0)
     }
 }
 
