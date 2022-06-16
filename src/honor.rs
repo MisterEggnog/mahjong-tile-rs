@@ -95,20 +95,20 @@ fn verify_winds_to_char() {
 #[test]
 fn verify_dragons_to_char() {
     use std::collections::HashSet;
-    let winds_char_uniq = Dragons::members()
+    let dragons_char_uniq = Dragons::members()
         .map(|t| match t {
             Tile::Honor(Honor::Dragons(d)) => d,
             _ => panic!("Impossible value {:?}", t),
         })
         .map(From::from)
         .collect::<HashSet<char>>();
-    assert_eq!(winds_char_uniq.len(), Dragons::members().count());
+    assert_eq!(dragons_char_uniq.len(), Dragons::members().count());
 }
 
 #[test]
 fn verify_honors_to_char() {
     use std::collections::HashSet;
-    let winds_char_uniq = Dragons::members()
+    let honor_char_uniq = Dragons::members()
         .chain(Winds::members())
         .map(|t| match t {
             Tile::Honor(h) => h,
@@ -117,7 +117,7 @@ fn verify_honors_to_char() {
         .map(From::from)
         .collect::<HashSet<char>>();
     assert_eq!(
-        winds_char_uniq.len(),
+        honor_char_uniq.len(),
         Dragons::members().chain(Winds::members()).count()
     );
 }
