@@ -62,7 +62,6 @@ fn verify_winds_amount() {
 
 #[test]
 fn verify_winds_to_char() {
-    use crate::Tile;
     use std::collections::HashSet;
     let winds_char_uniq = Winds::members()
         .map(|t| match t {
