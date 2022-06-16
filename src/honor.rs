@@ -50,7 +50,11 @@ impl From<Winds> for char {
 
 impl From<Dragons> for char {
     fn from(tile: Dragons) -> Self {
-        todo!()
+        match tile {
+            Dragons::Red => '🀄',
+            Dragons::Green => '🀅',
+            Dragons::White => '🀆',
+        }
     }
 }
 
