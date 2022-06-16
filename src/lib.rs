@@ -57,8 +57,6 @@ fn standard_set_amount() {
     assert_eq!(144, set.count());
 }
 
-use bounded_integer::BoundedU8;
-
 /// Unicode codespace defined tiles
 ///
 /// These tiles are defined in the Unicode codespace.
@@ -70,15 +68,3 @@ pub enum Special {
     /// I don't know what this tile is.
     Black,
 }
-
-// Tiles list
-// Pin
-pub const IIPIN: Suit = Suit::Circles(match BoundedU8::new(1) {
-    Some(a) => a,
-    None => unreachable!(),
-});
-pub const RYANPIN: Suit = Suit::Circles(match BoundedU8::new(2) {
-    Some(a) => a,
-    None => unreachable!(),
-});
-// unwrap is not stable for const fn
