@@ -60,7 +60,10 @@ impl From<Dragons> for char {
 
 impl From<Honor> for char {
     fn from(tile: Honor) -> Self {
-        todo!()
+        match tile {
+            Honor::Winds(w) => w.into(),
+            Honor::Dragons(d) => d.into(),
+        }
     }
 }
 
