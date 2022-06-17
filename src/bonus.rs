@@ -61,7 +61,12 @@ impl Seasons {
 
 impl From<Seasons> for char {
     fn from(tile: Seasons) -> Self {
-        todo!()
+        match tile {
+            Seasons::Spring => '🀦',
+            Seasons::Summer => '🀧',
+            Seasons::Autumn => '🀨',
+            Seasons::Winter => '🀩',
+        }
     }
 }
 
