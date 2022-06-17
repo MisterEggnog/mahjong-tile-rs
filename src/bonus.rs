@@ -35,6 +35,12 @@ impl Flowers {
     }
 }
 
+impl From<Flowers> for char {
+    fn from(tile: Flowers) -> Self {
+        todo!()
+    }
+}
+
 impl Seasons {
     pub fn members() -> impl Iterator<Item = Tile> {
         [
@@ -52,6 +58,19 @@ impl Seasons {
 fn verify_flowers_amount() {
     let flowers = Flowers::members();
     assert_eq!(4, flowers.count());
+}
+
+#[test]
+fn verify_flowers_to_char() {
+    use std::collections::HashSet;
+    let flowers_uniq = Flowers::members()
+        .map(|t| match t {
+            Tile::Bonus(Bonus::Flowers(f)) => f,
+            _ => panic!("Impossible value {:?}", t),
+        })
+        .map(From::from)
+        .collect::<HashSet<char>>();
+    assert_eq!(flowers_uniq.len(), Flowers::members().count());
 }
 
 #[test]
