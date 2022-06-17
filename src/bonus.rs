@@ -59,6 +59,12 @@ impl Seasons {
     }
 }
 
+impl From<Seasons> for char {
+    fn from(tile: Seasons) -> Self {
+        todo!()
+    }
+}
+
 #[test]
 fn verify_flowers_amount() {
     let flowers = Flowers::members();
@@ -82,4 +88,16 @@ fn verify_flowers_to_char() {
 fn verify_season_amount() {
     let seasons = Seasons::members();
     assert_eq!(4, seasons.count());
+}
+
+#[test]
+fn verify_seasons_to_char() {
+    use std::collections::HashSet;
+    let seasons_uniq = Seasons::members()
+        .map(|t| match t {
+            Tile::Bonus(Bonus::Seasons(s)) => s,
+            _ => panic!("Impossible value {:?}", t),
+        })
+        .map(From::from)
+        .collect::<HashSet<char>>();
 }
