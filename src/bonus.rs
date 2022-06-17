@@ -37,7 +37,12 @@ impl Flowers {
 
 impl From<Flowers> for char {
     fn from(tile: Flowers) -> Self {
-        todo!()
+        match tile {
+            Flowers::Plum => '🀢',
+            Flowers::Orchid => '🀣',
+            Flowers::Chrysanthemum => '🀥',
+            Flowers::Bamboo => '🀤',
+        }
     }
 }
 
