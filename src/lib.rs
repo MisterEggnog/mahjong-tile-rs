@@ -3,9 +3,10 @@
 //!
 //! The casting to char component is sketchy.
 //! Casting [Tile] to char is currently possible, though it's pretty funky.
-//! It casts to the characters from the [Mahjong Unicode Block], which has 1
-//! emoji, the Red Dragon (🀄).
-//! This tile can be made non-emoji by appending U+FE0F.
+//! One tile is an emoji but the rest are not.
+//! Plus while right now all Tiles can be cast to chars, this will change in the future.
+//! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
+//! You can find more information on Wikipedia at [Mahjong Unicode Block].
 //!
 //! For the to_char component, the information is from [Mahjong Unicode Block] page of Wikipedia.
 //!
