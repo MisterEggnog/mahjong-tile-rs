@@ -70,6 +70,12 @@ impl From<Seasons> for char {
     }
 }
 
+impl From<Bonus> for char {
+    fn from(tile: Bonus) -> Self {
+        todo!()
+    }
+}
+
 #[test]
 fn verify_flowers_amount() {
     let flowers = Flowers::members();
@@ -106,4 +112,20 @@ fn verify_seasons_to_char() {
         .map(From::from)
         .collect::<HashSet<char>>();
     assert_eq!(seasons_uniq.len(), Seasons::members().count());
+}
+
+#[test]
+fn verify_bonus_to_char() {
+    use std::collections::HashSet;
+    let bonus_tiles: Vec<Tile> = Seasons::members().chain(Flowers::members()).collect();
+    let bonus_uniq = bonus_tiles
+        .iter()
+        .copied()
+        .map(|t| match t {
+            Tile::Bonus(b) => b,
+            _ => panic!("Impossible value {:?}", t),
+        })
+        .map(From::from)
+        .collect::<HashSet<char>>();
+    assert_eq!(bonus_uniq.len(), bonus_tiles.len());
 }
