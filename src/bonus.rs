@@ -72,7 +72,10 @@ impl From<Seasons> for char {
 
 impl From<Bonus> for char {
     fn from(tile: Bonus) -> Self {
-        todo!()
+        match tile {
+            Bonus::Seasons(s) => s.into(),
+            Bonus::Flowers(f) => f.into(),
+        }
     }
 }
 
