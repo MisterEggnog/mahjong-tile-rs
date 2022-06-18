@@ -105,4 +105,5 @@ fn verify_seasons_to_char() {
         })
         .map(From::from)
         .collect::<HashSet<char>>();
+    assert_eq!(seasons_uniq.len(), Seasons::members().count());
 }
