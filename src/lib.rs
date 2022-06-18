@@ -35,6 +35,7 @@ impl TryFrom<Tile> for char {
         match value {
             Tile::Suit(suit) => Ok(suit.into()),
             Tile::Honor(honor) => Ok(honor.into()),
+            Tile::Bonus(bonus) => Ok(bonus.into()),
             _ => Err(TileCastingError(value)),
         }
     }
