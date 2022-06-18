@@ -6,9 +6,10 @@
 //! One tile is an emoji but the rest are not.
 //! Plus while right now all Tiles can be cast to chars, this will change in the future.
 //! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
+//! In the future this may become a feature.
+//!
 //! You can find more information on Wikipedia at [Mahjong Unicode Block].
 //!
-//! For the to_char component, the information is from [Mahjong Unicode Block] page of Wikipedia.
 //!
 //! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
 #![allow(dead_code)]
