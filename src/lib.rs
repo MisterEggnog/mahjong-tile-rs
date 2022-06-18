@@ -36,6 +36,7 @@ impl TryFrom<Tile> for char {
             Tile::Suit(suit) => Ok(suit.into()),
             Tile::Honor(honor) => Ok(honor.into()),
             Tile::Bonus(bonus) => Ok(bonus.into()),
+            Tile::Special(special) => Ok(special.into()),
             _ => Err(TileCastingError(value)),
         }
     }
@@ -99,6 +100,15 @@ pub enum Special {
     Joker,
     /// I don't know what this tile is.
     Black,
+}
+
+impl From<Special> for char {
+    fn from(tile: Special) -> Self {
+        match tile {
+            Special::Joker => '🀪',
+            Special::Black => '🀫',
+        }
+    }
 }
 
 // Tiles list
