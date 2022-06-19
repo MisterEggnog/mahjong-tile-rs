@@ -23,6 +23,49 @@ impl Suit {
     }
 }
 
+impl From<Suit> for char {
+    fn from(tile: Suit) -> Self {
+        match tile {
+            Suit::Bamboo(n) => match n.get() {
+                1 => '🀐',
+                2 => '🀑',
+                3 => '🀒',
+                4 => '🀓',
+                5 => '🀔',
+                6 => '🀕',
+                7 => '🀖',
+                8 => '🀗',
+                9 => '🀘',
+                _ => panic!("{:?}", tile),
+            },
+            Suit::Circles(n) => match n.get() {
+                1 => '🀙',
+                2 => '🀚',
+                3 => '🀛',
+                4 => '🀜',
+                5 => '🀝',
+                6 => '🀞',
+                7 => '🀟',
+                8 => '🀠',
+                9 => '🀡',
+                _ => panic!("{:?}", tile),
+            },
+            Suit::Characters(n) => match n.get() {
+                1 => '🀇',
+                2 => '🀈',
+                3 => '🀉',
+                4 => '🀊',
+                5 => '🀋',
+                6 => '🀌',
+                7 => '🀍',
+                8 => '🀎',
+                9 => '🀏',
+                _ => panic!("{:?}", tile),
+            },
+        }
+    }
+}
+
 #[test]
 fn verify_suit_amount() {
     let suits = Suit::members();
@@ -32,4 +75,17 @@ fn verify_suit_amount() {
         "3 Suits & 9 each should result in {} unique tiles",
         3 * 9
     );
+}
+
+#[test]
+fn verify_unique_char_cast() {
+    use std::collections::HashSet;
+    let set: HashSet<char> = Suit::members()
+        .map(|t| match t {
+            Tile::Suit(s) => s,
+            _ => unreachable!(),
+        })
+        .map(|a| a.into())
+        .collect();
+    assert_eq!(set.len(), Suit::members().count());
 }

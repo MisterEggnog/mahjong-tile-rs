@@ -1,8 +1,22 @@
 //! All information from
 //! <https://en.wikipedia.org/wiki/Mahjong_tiles>.
+//!
+//! The casting to char component is sketchy.
+//! Casting [Tile] to char is currently possible, though it's pretty funky.
+//! One tile is an emoji but the rest are not.
+//! Plus while right now all Tiles can be cast to chars, this will change in the future.
+//! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
+//! In the future this may become a feature.
+//!
+//! You can find more information on Wikipedia at [Mahjong Unicode Block].
+//!
+//!
+//! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
 #![allow(dead_code)]
 #![allow(unused_imports)]
 #![allow(unused_variables)]
+use std::error::Error;
+use std::fmt;
 
 mod bonus;
 mod honor;
@@ -22,6 +36,32 @@ pub enum Tile {
     Bonus(Bonus),
     Special(Special),
 }
+
+impl TryFrom<Tile> for char {
+    type Error = TileCastingError;
+
+    fn try_from(value: Tile) -> Result<Self, Self::Error> {
+        match value {
+            Tile::Suit(suit) => Ok(suit.into()),
+            Tile::Honor(honor) => Ok(honor.into()),
+            Tile::Bonus(bonus) => Ok(bonus.into()),
+            Tile::Special(special) => Ok(special.into()),
+            _ => Err(TileCastingError(value)),
+        }
+    }
+}
+
+/// Error returned when casting Tile to str
+#[derive(Debug)]
+pub struct TileCastingError(Tile);
+
+impl fmt::Display for TileCastingError {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
+        write!(f, "this tile variant ({:?}) is not castable", self.0)
+    }
+}
+
+impl std::error::Error for TileCastingError {}
 
 /// General set of Mahjong tiles
 ///
@@ -67,4 +107,13 @@ pub enum Special {
     Joker,
     /// I don't know what this tile is.
     Black,
+}
+
+impl From<Special> for char {
+    fn from(tile: Special) -> Self {
+        match tile {
+            Special::Joker => '🀪',
+            Special::Black => '🀫',
+        }
+    }
 }
