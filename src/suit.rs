@@ -1,8 +1,10 @@
 use crate::Tile;
+use serde::{Deserialize, Serialize};
 
 type SuitNum = bounded_integer::BoundedU8<1, 9>;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[derive(Serialize, Deserialize)]
 pub enum Suit {
     Circles(SuitNum),
     Bamboo(SuitNum),
