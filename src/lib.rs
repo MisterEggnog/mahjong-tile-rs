@@ -1,4 +1,6 @@
-//! All information from Wikipedia.
+//! Implements mahjong tile type in rust.
+//! This is likely overengineered & will probably change in the future.
+//! All the information for this came from Wikipedia.
 //!
 //! #### Impl From<Tile> for char
 //! Casting [Tile] to char is currently possible, though it's pretty funky.
