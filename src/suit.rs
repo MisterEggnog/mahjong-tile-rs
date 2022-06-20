@@ -1,8 +1,12 @@
 use crate::Tile;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 type SuitNum = bounded_integer::BoundedU8<1, 9>;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Suit {
     Circles(SuitNum),
     Bamboo(SuitNum),

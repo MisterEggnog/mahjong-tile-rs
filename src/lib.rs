@@ -18,6 +18,9 @@
 use std::error::Error;
 use std::fmt;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 mod bonus;
 mod honor;
 mod suit;
@@ -29,6 +32,7 @@ pub use suit::*;
 use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[non_exhaustive]
 pub enum Tile {
     Suit(Suit),
@@ -102,6 +106,7 @@ fn standard_set_amount() {
 /// These tiles are defined in the Unicode codespace.
 /// Therefore I'm including them.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Special {
     /// Probably a bigger deal in American Mahjong.
     Joker,
