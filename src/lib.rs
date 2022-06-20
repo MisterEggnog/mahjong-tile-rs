@@ -1,5 +1,5 @@
 //! Implements mahjong tile type in rust.
-//! This is likely overengineered & will probably change in the future.
+//! This is likely over engineered & will probably change in the future.
 //! All the information for this came from Wikipedia.
 //!
 //! #### Impl From<Tile> for char
