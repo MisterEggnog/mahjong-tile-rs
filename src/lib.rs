@@ -7,6 +7,9 @@
 //! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
 //! In the future this may become a feature.
 //!
+//! #### Deriving Serde
+//! To enable deriving serde, simply set the serde feature.
+//!
 //! ### Sources:
 //! [Mahjong Tiles] <br>
 //! [Mahjong Unicode Block] <br>
