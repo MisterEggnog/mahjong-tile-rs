@@ -1,13 +1,13 @@
 //! All information from Wikipedia.
 //!
-//! The casting to char component is sketchy.
+//! #### Impl From<Tile> for char
 //! Casting [Tile] to char is currently possible, though it's pretty funky.
 //! One tile is an emoji but the rest are not.
 //! Plus while right now all Tiles can be cast to chars, this will change in the future.
 //! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
 //! In the future this may become a feature.
 //!
-//! Sources: <br>
+//! ### Sources:
 //! [Mahjong Tiles] <br>
 //! [Mahjong Unicode Block] <br>
 //!
