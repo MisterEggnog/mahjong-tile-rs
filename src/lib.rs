@@ -4,6 +4,9 @@
 #![allow(unused_imports)]
 #![allow(unused_variables)]
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 mod bonus;
 mod honor;
 mod suit;
@@ -64,6 +67,7 @@ use bounded_integer::BoundedU8;
 /// These tiles are defined in the Unicode codespace.
 /// Therefore I'm including them.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Special {
     /// Probably a bigger deal in American Mahjong.
     Joker,
