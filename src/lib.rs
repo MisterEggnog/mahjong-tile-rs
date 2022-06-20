@@ -1,5 +1,4 @@
-//! All information from
-//! <https://en.wikipedia.org/wiki/Mahjong_tiles>.
+//! All information from Wikipedia.
 //!
 //! The casting to char component is sketchy.
 //! Casting [Tile] to char is currently possible, though it's pretty funky.
@@ -8,9 +7,11 @@
 //! Furthermore some types may broadly map to one char, e.g. [Special::Joker].
 //! In the future this may become a feature.
 //!
-//! You can find more information on Wikipedia at [Mahjong Unicode Block].
+//! Sources: <br>
+//! [Mahjong Tiles] <br>
+//! [Mahjong Unicode Block] <br>
 //!
-//!
+//! [Mahjong Tiles]: https://en.wikipedia.org/wiki/Mahjong_tiles
 //! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
 #![allow(dead_code)]
 #![allow(unused_imports)]
