@@ -1,12 +1,17 @@
 use crate::Tile;
 
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Bonus {
     Seasons(Seasons),
     Flowers(Flowers),
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Seasons {
     Spring,
     Summer,
@@ -15,6 +20,7 @@ pub enum Seasons {
 }
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 pub enum Flowers {
     Plum,
     Orchid,
