@@ -18,6 +18,7 @@ pub use suit::*;
 use utility::loop_iterator_with;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
 #[non_exhaustive]
 pub enum Tile {
     Suit(Suit),
