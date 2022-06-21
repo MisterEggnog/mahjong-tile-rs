@@ -18,10 +18,6 @@
 //!
 //! [Mahjong Tiles]: https://en.wikipedia.org/wiki/Mahjong_tiles
 //! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
-#![allow(dead_code)]
-#![allow(unused_imports)]
-#![allow(unused_variables)]
-use std::error::Error;
 use std::fmt;
 
 #[cfg(feature = "serde")]
