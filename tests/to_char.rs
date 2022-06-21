@@ -1,4 +1,4 @@
-use mahjong::*;
+use mahjong_tiles::*;
 use std::iter::once;
 
 #[test]
