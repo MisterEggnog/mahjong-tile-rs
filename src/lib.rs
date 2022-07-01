@@ -53,7 +53,7 @@ impl TryFrom<Tile> for char {
             Tile::Honor(honor) => Ok(honor.into()),
             Tile::Bonus(bonus) => Ok(bonus.into()),
             Tile::Special(special) => Ok(special.into()),
-            // _ => Err(TileCastingError(value)),
+            _ => Err(TileCastingError(value)),
         }
     }
 }
