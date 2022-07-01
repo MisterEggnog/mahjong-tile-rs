@@ -23,13 +23,11 @@
 use serde::{Deserialize, Serialize};
 
 mod bonus;
-mod cast_error;
 mod honor;
 mod suit;
 mod utility;
 
 pub use bonus::*;
-pub use cast_error::*;
 pub use honor::*;
 pub use suit::*;
 use utility::loop_iterator_with;
@@ -45,7 +43,11 @@ pub enum Tile {
 }
 
 impl TryFrom<Tile> for char {
-    type Error = TileCastingError;
+    type Error = std::convert::Infallible;
+    // Removed TileCastingError on 2022/06/30.
+    // Currently it's a clippy warning to have unreachable branches, even on
+    // a type marked non_exhaustive.
+    // So revert this when the Tile type expands.
 
     fn try_from(value: Tile) -> Result<Self, Self::Error> {
         match value {
@@ -53,7 +55,6 @@ impl TryFrom<Tile> for char {
             Tile::Honor(honor) => Ok(honor.into()),
             Tile::Bonus(bonus) => Ok(bonus.into()),
             Tile::Special(special) => Ok(special.into()),
-            _ => Err(TileCastingError(value)),
         }
     }
 }
