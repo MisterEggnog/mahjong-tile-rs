@@ -3,7 +3,7 @@ use std::fmt;
 
 /// Error returned when casting Tile to str
 #[derive(Debug)]
-pub struct TileCastingError(Tile);
+pub struct TileCastingError(pub Tile);
 
 impl fmt::Display for TileCastingError {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
