@@ -18,17 +18,18 @@
 //!
 //! [Mahjong Tiles]: https://en.wikipedia.org/wiki/Mahjong_tiles
 //! [Mahjong Unicode Block]: https://en.wikipedia.org/wiki/Mahjong_Tiles_(Unicode_block)
-use std::fmt;
 
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 
 mod bonus;
+mod cast_error;
 mod honor;
 mod suit;
 mod utility;
 
 pub use bonus::*;
+pub use cast_error::*;
 pub use honor::*;
 pub use suit::*;
 use utility::loop_iterator_with;
@@ -56,18 +57,6 @@ impl TryFrom<Tile> for char {
         }
     }
 }
-
-/// Error returned when casting Tile to str
-#[derive(Debug)]
-pub struct TileCastingError(Tile);
-
-impl fmt::Display for TileCastingError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> Result<(), fmt::Error> {
-        write!(f, "this tile variant ({:?}) is not castable", self.0)
-    }
-}
-
-impl std::error::Error for TileCastingError {}
 
 /// General set of Mahjong tiles
 ///
